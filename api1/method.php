@@ -99,7 +99,5 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 echo "Método de solicitud no válido.";
                 break;
         }
-        
-        $conexion->close();
 
 ?>
