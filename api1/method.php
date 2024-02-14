@@ -100,4 +100,92 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 break;
         }
 
+        header("Access-Control-Allow-Origin: *");
+
+        // Permitir métodos HTTP específicos
+        header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE, HEAD, TRACE, PATCH");
+        
+        // Permitir encabezados personalizados
+        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+        
+        // Permitir credenciales
+        header("Access-Control-Allow-Credentials: true");
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            // Responder a la solicitud OPTIONS sin procesar nada más
+            http_response_code(200);
+            exit;
+        }
+                break;
+        case 'HEAD':
+            if ($_SERVER['REQUEST_METHOD'] === 'HEAD') {
+              // Establecer encabezados de respuesta
+              header('Content-Type: application/json');
+              header('Custom-Header: PHP 8, HTML ');
+          
+              // Puedes establecer otros encabezados necesarios aquí
+          
+              // No es necesario enviar un cuerpo en una solicitud HEAD, por lo que no se imprime nada aquí.
+          } else {
+              http_response_code(405); // Método no permitido
+              echo 'Método de solicitud no válido';
+          }
+            break;
+          
+            case 'TRACE':
+              header("Access-Control-Allow-Origin: *");
+              if ($_SERVER['REQUEST_METHOD'] === 'TRACE') {
+                $response = "Solicitud TRACE recibida. Estado: 200 OK";
+            } else {
+                $response = "Método de solicitud no válido. Estado: 405 Método no permitido";
+            }
+            
+            echo $response;
+              break;
+          
+              case'LINK':
+                $apiUrl = 'https://ejemplo.com/tu_endpoint'; // Reemplaza con la URL de tu API
+                $resourceUri = '/ruta/a/tu/recurso'; // Reemplaza con la ruta de tu recurso
+                $linkHeader = '<' . $resourceUri . '>; rel="link-type"'; // Define el encabezado Link
+                
+                $options = [
+                    'http' => [
+                        'method' => 'LINK',
+                        'header' => 'Link: ' . $linkHeader,
+                    ],
+                ];
+                
+                $context = stream_context_create($options);
+                $response = file_get_contents($apiUrl, false, $context);
+                
+                if ($response === false) {
+                    echo "Error al enviar la solicitud LINK.";
+                } else {
+                    echo "Solicitud LINK exitosa. Respuesta del servidor: " . $response;
+                }
+                break;
+          case 'UNLINK':
+              $apiUrl = 'https://ejemplo.com/tu_endpoint'; // Reemplaza con la URL de tu API
+              $resourceUri = '/ruta/a/tu/recurso'; // Reemplaza con la ruta de tu recurso
+              $linkHeader = '<' . $resourceUri . '>; rel="unlink"'; // Define el encabezado Link
+              
+              $options = [
+                  'http' => [
+                      'method' => 'UNLINK',
+                      'header' => 'Link: ' . $linkHeader,
+                  ],
+              ];
+              
+              $context = stream_context_create($options);
+              $response = file_get_contents($apiUrl, false, $context);
+              
+              if ($response === false) {
+                  echo "Error al enviar la solicitud UNLINK.";
+              } else {
+                  echo "Solicitud UNLINK exitosa. Respuesta del servidor: " . $response;
+              }
+              break;
+          
+               default:
+                 echo 'undefined request type!';
 ?>
