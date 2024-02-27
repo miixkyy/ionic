@@ -1,0 +1,58 @@
+// Estilo para el ion-header
+ion-header {
+    // Cambiar el tipo de letra del texto del header
+    font-family: Arial, sans-serif;
+  }
+  
+  // Estilo para los ion-card
+  ion-card {
+    // Establecer un fondo y un color de texto
+    color: #333;
+  }
+  
+  // Estilo para los ion-card-header
+  ion-card-header {
+    // Establecer un fondo diferente para el header de cada card
+    background-color: #3498db; /* Azul */
+    color: #fff; /* Texto blanco */
+  }
+  
+  // Estilo para los ion-card-content
+  ion-card-content {
+    // Establecer un margen superior para separar el contenido del card-header
+    margin-top: 10px;
+  }
+  ion-icon{
+    color: rgb(0, 0, 0);
+  }
+ion-card[_ngcontent-ng-c998773908][_ngcontent-ng-c998773908] {
+    background-color: rgb(255, 255, 255);
+}
+ion-card-content[_ngcontent-ng-c998773908] {
+  margin-top: 10px;
+  /* color: blue; */
+  background-color: rgb(255, 255, 255);
+}
+ion-card[_ngcontent-ng-c998773908] {
+  background-color: rgb(255, 255, 255);
+}
+.card-content-md p {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 2px;
+  font-size: 0.875rem;
+  font-weight: normal;
+  line-height: 1.5;
+  color: rgb(76, 76, 159);
+}
+.ion-col{
+  max-width: calc(50% - 2px);
+}
+ion-card-header[_ngcontent-ng-c998773908]{
+  background-color: red;
+
+}
+ion-card-header:hover[_ngcontent-ng-c998773908]{
+  transform: scale(1.1);  
+}
