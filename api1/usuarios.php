@@ -57,7 +57,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
     case 'GET':
         // Consulta SQL para seleccionar datos de la tabla de entradas_diario
-        $sql = "SELECT id_entrada, id_usuario, titulo, contenido, creado_en FROM entradas_diario";
+        $sql = "SELECT id_usuario, nombre_usuario, contrasena, correo_electronico FROM usuarios";
 
         $query = $conexion->query($sql);
 
@@ -78,13 +78,13 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
     case 'POST':
             // Recibir los datos del formulario HTML
-            $id_usuario = $datos['id_usuario'];
-            $titulo = $datos['titulo'];
-            $contenido = $datos['contenido'];
+            $nombre_usuario = $datos['nombre_usuario'];
+            $contrasena = $datos['contrasena'];
+            $correo_electronico = $datos['correo_electronico'];
 
             // Insertar los datos en la tabla de entradas_diario
-            $sql = $conexion->prepare("INSERT INTO entradas_diario (id_usuario, titulo, contenido) VALUES (?,?,?)");
-            $sql->bind_param("sss", $id_usuario, $titulo, $contenido);
+            $sql = $conexion->prepare("INSERT INTO usuarios (nombre_usuario, contrasena, correo_electronico) VALUES (?,?,?)");
+            $sql->bind_param("sss", $nombre_usuario, $contrasena, $correo_electronico);
             if($sql->execute()){
                 echo "Datos insertados con exito";
             } else {
@@ -95,20 +95,23 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
         case 'PATCH':
         $id_usuario = $datos['id_usuario'];
-        $id_entrada = $datos['id_entrada'];
-        $titulo = $datos['titulo'];
-        $contenido = $datos['contenido'];
+        $nombre_usuario = $datos['nombre_usuario'];
+        $contrasena = $datos['contrasena'];
+        $correo_electronico = $datos['correo_electronico'];
     
         $actualizaciones = array();
-        if (!empty($titulo)) {
-            $actualizaciones[] = "titulo = '$titulo'";
+        if (!empty($contrasena)) {
+            $actualizaciones[] = "nombre_usuario = '$nombre_usuario'";
         }
-        if (!empty($contenido)) {
-            $actualizaciones[] = "contenido = '$contenido'";
+        if (!empty($contrasena)) {
+            $actualizaciones[] = "contrasena = '$contrasena'";
+        }
+        if (!empty($correo_electronico)) {
+            $actualizaciones[] = "correo_electronico = '$correo_electronico'";
         }
     
         $actualizaciones_str = implode(', ', $actualizaciones);
-        $sql = "UPDATE entradas_diario SET $actualizaciones_str WHERE id_entrada = $id_entrada";
+        $sql = "UPDATE usuarios SET $actualizaciones_str WHERE id_usuario = $id_usuario";
     
         if ($conexion->query($sql) === TRUE) {
             echo "Registro actualizado con éxito.";
@@ -119,11 +122,11 @@ switch ($_SERVER['REQUEST_METHOD']) {
     
 
         case 'PUT':
+            $nombre_usuario = $datos['nombre_usuario'];
+            $contrasena = $datos['contrasena'];
+            $correo_electronico = $datos['correo_electronico'];
             $id_usuario = $datos['id_usuario'];
-            $id_entrada = $datos['id_entrada'];
-            $titulo = $datos['titulo'];
-            $contenido = $datos['contenido'];
-            $sql = "UPDATE entradas_diario SET titulo = '$titulo', contenido = '$contenido' WHERE id_entrada = $id_entrada";
+            $sql = "UPDATE usuarios SET nombre_usuario = '$nombre_usuario', contrasena = '$contrasena', correo_electronico = '$correo_electronico' WHERE id_usuario = $id_usuario";
     
             if ($conexion->query($sql) === TRUE) {
                 echo "Registro actualizado con éxito.";
@@ -134,10 +137,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
     
 
             case 'DELETE':
-                $id_entrada = $_GET['id_entrada'];
-                
-                $stmt = $conexion->prepare("DELETE FROM entradas_diario WHERE id_entrada = ?");
-                $stmt->bind_param("i", $id_entrada);
+                $id_usuario = $_GET['id_usuario'];
+                $stmt = $conexion->prepare("DELETE FROM usuarios WHERE id_usuario = $id_usuario");
                 
                 if ($stmt->execute()) {
                     echo "Registro eliminado con éxito.";
