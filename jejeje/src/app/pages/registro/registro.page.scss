@@ -1,0 +1,116 @@
+  /* Resets default styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Main container */
+  .contenedor_registro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #a3bae8;
+  }
+
+  /* Grid container */
+  .grid {
+    margin: 20px;
+    width: 400px;
+    border-radius: 10px;
+  }
+
+  /* Card header */
+  .card-header {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .card-header h1 {
+    font-size: 27px;
+    color: #a0f4f7;
+  }
+
+  /* Card content */
+  .card-content {
+    padding: 20px;
+  }
+
+  /* Form styling */
+  .form_login {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Label styling */
+  .item label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #404764;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  /* Input styling */
+  .item input {
+    margin: 2px;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-size: 17px;
+    letter-spacing: 0.8px;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+  }
+
+  .item input:focus {
+    border-color: #00bd10;
+    outline: none;
+  }
+
+  /* Button styling */
+  .iniciar_sesion {
+    background-color: #7a78d9;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 550;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: Arial, sans-serif;
+  }
+
+  .iniciar_sesion:hover {
+    background-color: #6350f1;
+  }
+
+  /* Additional styling for elegance */
+  .form_login {
+    justify-content: space-between;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .titulo_aling {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #ed8e8e;
+    position: relative;
+    bottom: 5rem;
+  }
+
+  .titulo_aling h1{
+    font-size: 5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+  }
