@@ -3,6 +3,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
   }
 
   /* Main container */
@@ -55,18 +57,16 @@
   }
 
   /* Input styling */
-  .item input {
-    margin: 2px;
+  .input {
+    margin: 10px;
     padding: 10px;
     border: 1px solid #ffffff;
     border-radius: 5px;
-    font-size: 17px;
-    letter-spacing: 0.8px;
+    font-size: 18px;
     color: #ffffff;
-    font-family: Arial, sans-serif;
   }
 
-  .item input:focus {
+  .input:focus {
     border-color: #00bd10;
     outline: none;
   }
@@ -74,15 +74,14 @@
   /* Button styling */
   .iniciar_sesion {
     background-color: #7a78d9;
-    color: #fff;
-    padding: 10px 20px;
+    color: #000000;
+    padding: 10px 10px;
     border: none;
     border-radius: 5px;
     font-size: 18px;
-    font-weight: 550;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: Arial, sans-serif;
+    align-items: center;
   }
 
   .iniciar_sesion:hover {

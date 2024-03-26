@@ -28,7 +28,7 @@
 }
 
 .card-header h1 {
-    font-size: 27px;
+    font-size: 34px;
     color: #a0f4f7;
 }
 
@@ -50,20 +50,19 @@
     font-size: 16px;
     font-weight: 500;
     color: #404764;
-    margin-bottom: 5px;
     text-align: center; /* Centra el texto */
 }
 
 /* Input styling */
 .item input {
-    margin: 2px;
-    padding: 10px;
-    border: 1px solid #ffffff;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
     border-radius: 5px;
-    font-size: 17px;
-    letter-spacing: 0.8px;
-    color: #ffffff;
-    font-family: Arial, sans-serif; /* Cambia el tipo de fuente */
+    font-size: 18px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin: 10px;
 }
 
 .item input:focus {
@@ -72,26 +71,28 @@
 }
 
 /* Button styling */
-.iniciar_sesion {
+.button {
     background-color: #7a78d9;
-    color: #fff;
-    padding: 10px 20px;
+    color: #000000;
+    padding: 10px 9.4rem;
     border: none;
     border-radius: 5px;
     font-size: 18px;
-    font-weight: 550;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: Arial, sans-serif; /* Cambia el tipo de fuente */
+    text-decoration: none;
+    justify-content: center;
+    align-self: center;
 }
 
-.iniciar_sesion:hover {
+.button:hover {
     background-color: #6350f1;
+    align-items: center;
 }
 
 /* Additional styling for elegance */
 .form_login {
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .item {

@@ -10,25 +10,15 @@
             <h1>Registro</h1>
           </div>
           <div class="card-content">
-            <form class="form_login">
-              <div class="item">
-                <label for="name" position="floating">Nombre de usuario</label>
-                <input type="text"  id="name" name="name" required>
-              </div>
-              <div class="item">
-                <label for="email" position="floating">Correo electrónico</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-              <div class="item">
-                <label for="password" position="floating">Contraseña</label>
-                <input type="password"  id="password" name="password" required>
-              </div>
-              <!-- <div class="item"> -->
-                <!-- <label for="repeatPassword" position="floating">Repetir contraseña</label> -->
-                <!-- <input type="password" [(ngModel)]='repeatPassword' id="repeatPassword" name="repeatPassword" required> -->
-              <!-- </div> -->
-              <ion-button href="/login">Registrarse</ion-button>
-            </form>
+            <ion-row class="form" justify-content-center  (ngSubmit)="signup()">
+              <ion-grid class="login" >
+                <input class="input" type="email" placeholder="Nombre" [(ngModel)]='name' id="name" name="name" required>
+                <input class="input" type="email" placeholder="Email"  name="user" [(ngModel)]='email'>
+                <input class="input" type="password" placeholder="Contraseña" name="password" [(ngModel)]='password'>              
+                <input class= "iniciar_sesion" type="submit" value="Entrar" (click)="signup()">
+                <a class="button" href="/login"> ¿Ya tienes una cuenta? </a>
+              </ion-grid>
+            </ion-row>
           </div>
         </div>
       </div>

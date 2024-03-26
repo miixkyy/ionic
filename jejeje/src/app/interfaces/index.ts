@@ -7,3 +7,10 @@ export interface TopLevel {
     contenido?:  string;
     creado_en?:  Date;
 }
+
+export interface User{
+    id_usuario: string;
+    nombre_usuario: string;
+    contrasena: string;
+    correo_electronico: string; 
+}
